@@ -68,7 +68,7 @@ class CitationStylesStyle(CitationStylesXML):
         return self.root.bibliography.sort(citation_items)
 
     def render_bibliography(self, citation_items):
-        return self.root.bibliography.render(citation_items)
+        return self.root.bibliography.render(citation_items) if self.has_bibliography() else ""
 
 
 class CitationStylesBibliography(object):

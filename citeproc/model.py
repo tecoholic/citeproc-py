@@ -1370,7 +1370,7 @@ class Group(CitationStylesElement, Parent, Formatted, Affixed, Delimited):
                     output.append(child_text)
                     variable_rendered = (variable_rendered or
                                          child.calls_variable())
-            except VariableError:
+            except (VariableError, AttributeError):
                 pass
         output = [item for item in output if item is not None]
         success = not variable_called or (variable_called and variable_rendered)
